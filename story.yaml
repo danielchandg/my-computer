@@ -1,0 +1,168 @@
+StartScene: Desktop
+Startdesc: "Welcome to my Computer! I finished my project, but now I don't know where it is on my computer. I need to find it and turn it in as soon as possible."
+
+Desktop:
+  desc: This is my Desktop. I can access my other folders from here.
+  title: Desktop
+  choices:
+    - text: README.txt
+      header: README.txt
+      content: "Daniel, looks like you forgot your login credentials again. Here is your guest account.<br>Username: Guest<br>Password: qwerty"
+      content2: +1 Guest Account
+      desc: Good thing I left a guest account lying around.
+      gain:
+        - GuestAccess
+        - FileOpen
+    - text: Downloads
+      target: Downloads
+      desc: "Looks like I can see my Downloads as a guest user. Must be something here..."
+      with:
+        - GuestAccess
+      gain:
+        - visited_downloads
+    - text: Documents
+      target: Documents
+      desc: "Why does my friend Bob have access to my Documents folder?"
+      with:
+        - UserAccess
+      gain:
+        - visited_docs
+    - text: P4_project
+      target: P4_project
+      desc: "I found my p4 project!"
+      with: 
+        - AdminAccess
+      gain:
+        - visited_p4
+
+Downloads:
+  desc: Most of the things I have downloaded will be here.
+  title: Desktop/Downloads
+  choices:
+    - text: Back to Desktop
+      target: Desktop
+    - text: math_homework.pdf
+      header: math_homework.pdf
+      content: "Determine the sum: ½ * ⅓ * ¼ + ⅓ * ¼ * ⅕ + ¼ * ⅕ * ⅙ + ... + 1/100 * 1/101 * 1/102"
+      desc: Math homework I turned in yesterday.
+      gain:
+        - FileOpen
+        - visited_math
+    - text: DESIGN.pdf
+      header: DESIGN.pdf
+      content: "Assignment 5: Huffman Encoder<br>The purpose of this assignment is to"
+      desc: "I'll work on this after I find my homework."
+      gain:
+        - visited_DESIGN_pdf
+        - FileOpen
+    - text: important_things.txt
+      header: important_things.txt
+      content: "Bob's account (found by Malice)<br><br>User: B*********<br>Password: R********"
+      desc: "Looks like something got deleted here."
+      gain:
+        - UserFound
+        - FileOpen
+    - text: KeyCracker.exe
+      target: KeyCracker
+      desc: Nice, a key cracking program!
+      gain:
+        - visited_keycracker
+
+KeyCracker:
+  desc: "Welcome 2 Key🔑Cracker, the best program to Crack Keyz! Whenever an account on this computer is detected, KeyCracker will allow you to crack it with the CLICK OF A BUTTON!"
+  title: "Desktop/Downloads/\nKeyCracker.exe"
+  choices:
+    - text: "Exit KeyCracker"
+      target: Downloads
+      without:
+        - FileOpen
+    - text: "ACCOUNT FOUND!"
+      header: "KeyCracker.exe"
+      content: "USERNAME: Guest<br>PASSWORD: qwerty"
+      desc: "I already have this account."
+      without:
+        - FileOpen
+      gain:
+        - FileOpen
+        - visited_kc_guest
+    - text: "ACCOUNT FOUND!!"
+      header: "KeyCracker.exe"
+      content: "USERNAME: BritishBob<br>PASSWORD: Redfish02"
+      content2: "+1 Bob's Account"
+      desc: "Hopefully Bob won't be too upset if I use his account."
+      without:
+        - FileOpen
+      gain:
+        - FileOpen
+        - UserAccess
+      with:
+        - UserFound
+    - text: "ACCOUNT FOUND!!!"
+      header: "KeyCracker.exe"
+      content: "USERNAME: Daniel<br>PASSWORD: 0reganoFrom0regon"
+      content2: "+1 Daniel's Account"
+      desc: "Finally, I got my own account back! I don't recall setting that as my password..."
+      without:
+        - FileOpen
+      gain:
+        - FileOpen
+        - AdminAccess
+      with:
+        - AdminFound
+    
+Documents:
+  desc: Here is where I store most of my saved documents. Some of my personal data might be stored here as well.
+  title: Desktop/Documents
+  choices:
+    - text: Back to Desktop
+      target: Desktop
+    - text: Human_Behavior.pdf
+      header: Human_Behavior.pdf
+      content: "According to Gladwell, immediate context plays a much more important role in human behavior than internal beliefs.<br>Simply pressuring someone to hurry up can turn 'someone who was ordinarily compassionate into someone who was indifferent to suffering.'"
+      desc: A writing assignment from last quarter that I reread once in a while.
+      gain:
+        - visited_human_behavior
+        - FileOpen
+    - text: CMPM35_notes.word
+      header: CMPM35_notes.word
+      content: "Late Policy: Full credit until 8am of Monday of Finals<br>Lecture Attendance: Recordings on Canvas<br>Exam Layout: Canvas, collaboration encouraged<br>P4 due 11/18"
+      desc: My notes will help me do my project but not find it.
+      gain:
+        - visited_notes
+        - FileOpen
+    - text: Bobs_stuff.txt
+      header: Bobs_stuff.txt
+      content: "From: Bob<br>To: Bob<br><br>Daniel wanted to share his password with Alice. Malice impersonated Alice and got Daniel's password. Thanks, Alice & Malice. Anyway, here's Daniel's login credentials.<br>username: [deleted]<br>password: [deleted]"
+      desc: Uh oh. I need to change my password as soon as I find my homework.
+      gain:
+        - AdminFound
+        - FileOpen
+    - text: Riddles.txt
+      header: Riddles.txt
+      content: "16, 06, 68, 88, __, 98. Find the missing number.<br><br>In 30 seconds, say 100 words without the letter 'a'."
+      desc: Riddles I saved from years ago.
+      gain:
+        - visited_riddles
+        - FileOpen
+
+P4_project:
+  desc: My P4 project submission.
+  title: Desktop/P4_project
+  choices:
+    - text: engine.js
+    - text: index.html
+    - text: narrator.js
+    - text: story.yaml
+    - text: style.css
+    - text: End Game
+      target: Win
+      desc: Thanks for playing!
+      gain:
+        - Victory
+  
+
+Win:
+  desc: ""
+  title: You win!
+  choices: []
+  

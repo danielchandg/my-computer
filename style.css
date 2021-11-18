@@ -1,0 +1,159 @@
+@font-face {
+  font-family: VCRFont;
+  src: url('https://cdn.glitch.me/955780fb-9b8f-4059-84c8-0f1c8ab4cbfb%2FVCR_OSD_MONO_1.001.ttf?v=1636789548848');
+}
+@font-face {
+  font-family: Savior1;
+  src: url('https://cdn.glitch.me/955780fb-9b8f-4059-84c8-0f1c8ab4cbfb%2FSavior1.ttf?v=1636845084057');
+}
+body {
+  font-family: VCRFont;
+  background-color: black;
+/*   max-width: 32em; */
+}
+#titleContainer {
+  font-family: Savior1;
+  font-weight: 10;
+  font-size: 50px;
+/*   padding: 10px; */
+  text-align: center;
+/*   text-shadow: 0 0 1px #e60073, 0 0 3px #e60073, 0 0 5px #e60073; */
+  color: white;
+  animation-duration: 30s;
+  animation-name: glowyText;
+  animation-iteration-count: infinite;
+}
+.hacker1 {
+  font-family: VCRFont;
+  font-size: 20px;
+  color: green;
+/*   padding: 30px; */
+  width: 1%;
+/*   background-color: #111; */
+  display: inline-block;
+}
+#filler {
+  width: 160px;
+  height: 1px;
+  display: inline-block;
+}
+#descriptionsContainer {
+  margin-top: 1em;
+  border-top: thick solid black;
+  margin-botton: 1em;
+  border-bottom: thin solid black;
+  color: white;
+  padding-bottom: 30px;
+/*   display: inline-block; */
+}
+a:link {
+  color: white;
+  text-decoration: none;
+}
+a:hover {
+  color: yellow;
+  font-size: 101%;
+}
+a:active {
+  color: orange;
+}
+#fileContainer {
+  font-family: Tahoma;
+  color: white;
+/*   height: 150px; */
+  border: 4px outset blue;
+  margin-left: auto;
+  margin-right: auto;
+  display: block;
+}
+#fileHeader {
+  background-color: blue;
+  padding-left: 5px;
+  padding-bottom: 2px;
+}
+#fileContent {
+  background-color: gray;
+/*   height: 30px; */
+  padding: 3px;
+  padding-left: 6px;
+}
+
+#middleContainer {
+  margin-left: auto;
+  margin-right: auto;
+  padding: 30px;
+  background-image: url('https://cdn.glitch.me/955780fb-9b8f-4059-84c8-0f1c8ab4cbfb%2Ftext%20background%20small.png?v=1636844981881');
+  border-radius: 50px;
+  border: 5px solid white;
+/*   box-shadow:0 0 20px #9ecaed; */
+  animation: glowyBorder 8s infinite;
+}
+
+@keyframes glowyText {
+  from { /* pink */
+    text-shadow: 0 0 1px #e60073, 0 0 3px #e60073, 0 0 5px #e60073;
+  }
+  33% { /* blue */
+    text-shadow: 0 0 1px #00d3e6, 0 0 3px #00d3e6, 0 0 5px #00d3e6;
+  }
+  66% { /* yellow */
+    text-shadow: 0 0 1px #f0f000, 0 0 3px #f0f000;
+  }
+  to { /* pink */
+    text-shadow: 0 0 1px #e60073, 0 0 3px #e60073, 0 0 5px #e60073;
+  }
+}
+@keyframes glowyBorder {
+  from {
+    box-shadow:0 0 20px #9ecaed;
+  }
+  40% {
+    box-shadow:0 0 20px #9ecaed;
+  }
+  50% {
+    box-shadow:0 0 40px #9ecaed;
+  }
+  60% {
+    box-shadow:0 0 20px #9ecaed;
+  }
+  to {
+    box-shadow:0 0 20px #9ecaed;
+  }
+}
+
+.column {
+  float: left;
+/*   height: 300px; */
+}
+
+.left, .right {
+  width: 30%;
+  padding: 10px;
+}
+.middle {
+  width: 34%;
+  padding: 30px;
+}
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+.big {
+  color: #00d400;
+}
+.blu {
+  color: #00c1e8;
+}
+.blu:hover{
+  color: yellow;
+  font-size: 101%;
+}
+.blu:active {
+  color: orange;
+}
+.dim {
+  background-color: #000;
+  color: #aaa;
+}
